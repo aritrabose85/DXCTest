@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'DXCTest'
+
+Resources:
+  DXCRecruitmentTest:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://arbo-dxctest/DXCRecruitmentTest-1.0.jar
+      Handler: dxctest.App::handleRequest
+      Runtime: java8.al2
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Timeout: 30
+      Role: arn:aws:iam::162813129447:role/LambdaExecutionRole # This is AWS managed role AWSLambdaExecutionRole
