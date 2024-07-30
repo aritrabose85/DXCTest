@@ -47,11 +47,4 @@ public class App implements RequestHandler<Object, Object> {
             return new GatewayResponse("Failure", headers, 500);
         }
     }
-
-    private String getPageContents(String address) throws IOException{
-        URL url = new URL(address);
-        try(BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()))) {
-            return br.lines().collect(Collectors.joining(System.lineSeparator()));
-        }
-    }
 }
